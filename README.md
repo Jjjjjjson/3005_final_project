@@ -21,3 +21,6 @@ How to test our program:
   -- After finish the library structure, right click on clubManagement.java class
   
   -- Run the App and use terminal to enter your option.
+
+Youtube demo video: https://youtu.be/w69hFywzekc
+
