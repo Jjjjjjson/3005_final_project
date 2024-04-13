@@ -1,8 +1,11 @@
 Health and Fitness Club Management System
+
 COMP3005 Final Project
+
 Group 182
 
 Group members:
+
   Enhua Fan   #101180050
   Jiayi Li    #101119767
 
