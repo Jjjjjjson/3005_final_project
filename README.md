@@ -6,7 +6,7 @@ Group 182
 
 Group members:
 
-  Enhua Fan   #101180050
+  Enhua Fan   #101180050\n
   Jiayi Li    #101119767
 
 How to test our program:
