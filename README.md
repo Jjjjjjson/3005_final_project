@@ -1,6 +1,4 @@
-Health and Fitness Club Management System
-
-COMP3005 Final Project
+COMP3005 Final Project: Health and Fitness Club Management System
 
 Group 182
 
