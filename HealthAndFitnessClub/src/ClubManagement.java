@@ -273,7 +273,7 @@ public class ClubManagement {
         System.out.print("Enter new password: ");
         String password = scanner.nextLine();
 
-        // SQL query to insert the new user
+        // SQL query to insert the new trainer
         String query = "INSERT INTO Trainer (Username, Password) VALUES (?, ?);";
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
              PreparedStatement pstmt = conn.prepareStatement(query)) {
@@ -299,7 +299,7 @@ public class ClubManagement {
         System.out.print("Enter new password: ");
         String password = scanner.nextLine();
 
-        // SQL query to insert the new user
+        // SQL query to insert the new administrator
         String query = "INSERT INTO Administrator (Username, Password) VALUES (?, ?);";
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
              PreparedStatement pstmt = conn.prepareStatement(query)) {
@@ -541,7 +541,7 @@ public class ClubManagement {
         System.out.print("Enter health statistics: ");
         String healthStatistics = scanner.nextLine();
 
-        // SQL query to insert data into the Dashboard table. This requires a JOIN to find the MemberID based on the username.
+        // SQL query to insert data into the Dashboard table.
         String query = "INSERT INTO Dashboard (MemberID, ExerciseRoutines, FitnessAchievements, HealthStatistics) " +
                 "SELECT MemberID, ?, ?, ? FROM Member WHERE Username = ?;";
 
@@ -572,7 +572,6 @@ public class ClubManagement {
         String username = scanner.nextLine(); // Read the username from input
 
         // Query to fetch the exercise routines, fitness achievements, and health statistics of the member
-        // using a JOIN with the Member table to match by username.
         String query = "SELECT d.ExerciseRoutines, d.FitnessAchievements, d.HealthStatistics " +
                 "FROM Dashboard d JOIN Member m ON d.MemberID = m.MemberID " +
                 "WHERE m.Username = ?;";
@@ -618,7 +617,7 @@ public class ClubManagement {
             System.out.println("4. Exit Schedule Management");
             System.out.print("Choose an option: ");
             int choice = scanner.nextInt();
-            scanner.nextLine();  // Consume newline left-over
+            scanner.nextLine();  // Consume newline
 
             switch (choice) {
                 case 1:
@@ -775,7 +774,6 @@ public class ClubManagement {
         }
     }
 
-    // TODO
     private void scheduleGroupFitnessClass() {
         System.out.println("Scheduling a Group Fitness Class........");
 
@@ -860,7 +858,6 @@ public class ClubManagement {
 
 
 
-
     /**
      * Detailed function for Trainer interface after login.
      */
@@ -912,7 +909,7 @@ public class ClubManagement {
         String query = "SELECT MemberID, Username, Email, Address FROM Member WHERE Username LIKE ?";
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
              PreparedStatement pstmt = conn.prepareStatement(query)) {
-            pstmt.setString(1, "%" + memberName + "%");  // Using LIKE for partial matching
+            pstmt.setString(1, "%" + memberName + "%");
 
             try (ResultSet rs = pstmt.executeQuery()) {
                 if (!rs.isBeforeFirst()) {  // Check if the result set is empty
@@ -1004,7 +1001,7 @@ public class ClubManagement {
 
         System.out.print("Enter the Booking ID: ");
         int bookingId = scanner.nextInt();
-        scanner.nextLine(); // consume the leftover newline
+        scanner.nextLine(); // consume newline
 
         // Display the current status
         String fetchQuery = "SELECT roomname, datetime, status FROM Room_booking WHERE bookingid = ?";
@@ -1142,7 +1139,7 @@ public class ClubManagement {
         String query = "UPDATE Class SET datetime = ? WHERE classid = ?";
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
              PreparedStatement pstmt = conn.prepareStatement(query)) {
-            pstmt.setTimestamp(1, java.sql.Timestamp.valueOf(newDatetime + ":00")); // appending seconds
+            pstmt.setTimestamp(1, java.sql.Timestamp.valueOf(newDatetime + ":00"));
             pstmt.setInt(2, classId);
 
             int affectedRows = pstmt.executeUpdate();
