@@ -4,9 +4,9 @@ Group 182
 
 Group members:
 
-  Enhua Fan   #101180050
+  Enhua Fan   #101180050     # Main implementation of interface, DDL and DML
   
-  Jiayi Li    #101119767
+  Jiayi Li    #101119767     # ER diagram, Relation Schemas, DDL dna DML, Administor part of interface
 
 How to test our program:
 
